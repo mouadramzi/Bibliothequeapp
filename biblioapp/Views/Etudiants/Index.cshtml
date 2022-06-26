@@ -1,0 +1,57 @@
+﻿@model IEnumerable<biblioapp.Models.Etudiant>
+
+@{
+    ViewBag.Title = "Etudiants";
+}
+
+<h2>Voici toutes les étudiants</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datenaissnace)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.filiere)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.groupe)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.prenom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datenaissnace)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.filiere)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.groupe)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.matricule }) |
+            @Html.ActionLink("Details", "Details", new { id=item.matricule }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.matricule })
+        </td>
+    </tr>
+}
+
+</table>

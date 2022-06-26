@@ -1,0 +1,70 @@
+﻿@model IEnumerable<biblioapp.Models.Etudiant>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<form action="#" method="get" class="">
+    <div class="input-">
+        Nom :    <input type="text" name="nom" class="" placeholder="nom..."> Groupe : <input type="text" name="grp" class="" placeholder="Groupe..."> 
+        Filier :
+        <select class="" id="StudentGender" name="filier">
+            <option value="">Selectionner une filier </option>
+            <option value="IIR">IIR </option>
+            <option value="IFA">IFA</option>
+            <option value="Genie Civil"> Genie Civil</option>
+            <option value="Genie indestrulle"> Genie indestrulle</option>
+
+        </select>
+        <span class="">
+            <button type="submit" id="button1" value="Rechercher" formaction='@Url.Action("rechercheetudiant", "etudiants")'>Rechercher</button>
+
+
+        </span>
+    </div>
+</form>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datenaissnace)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.filiere)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.groupe)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.prenom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datenaissnace)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.filiere)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.groupe)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.matricule }) |
+            @Html.ActionLink("Details", "Details", new { id=item.matricule }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.matricule })
+        </td>
+    </tr>
+}
+
+</table>

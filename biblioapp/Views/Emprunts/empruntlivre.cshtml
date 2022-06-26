@@ -1,0 +1,48 @@
+﻿@model IEnumerable<biblioapp.Models.Emprunt>
+<p></p></br>
+<form action="#" method="get" class="">
+    <div class="input-">
+        Id :    <input type="number" name="idl" class="" placeholder="id..."> Code livre : <input type="text" name="codelivre" class="" placeholder="code livre...">
+        Matricule :<input type="number" name="codeetudiant" class="" placeholder="Matricule ...">
+
+        <span class="">
+            <button type="submit" id="button1" value="Rechercher" formaction='@Url.Action("empruntlivre", "emprunts")'>Rechercher</button>
+
+
+        </span>
+    </div>
+</form>
+<table class="table">
+    
+    <tr>
+        <th>Id</th>
+        <th>
+            @Html.DisplayNameFor(model => model.Matricule)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codelivre)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Matricule)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codelivre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+        </td>
+    </tr>
+    }
+
+</table>
